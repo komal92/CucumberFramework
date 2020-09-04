@@ -1,29 +1,16 @@
-Feature: Free CRM Login Feature
+Feature: Free Login Feature
 
+#Scenario Outline is used for data parameterization
 
-#without Examples Keyword
-#Scenario: Free CRM Login Test Scenario
-#
-#Given user is already on Login Page
-#When title of login page is Free CRM
-#Then user enters "naveenk" and "test@123"
-#Then user clicks on login button
-#Then user is on home page
+  Scenario Outline: Free Login Test Scenario
+    Given user is already on Books Page
+    When user clicks on Login button
+    Then user enters "<username>" and "<password>"
+    When user clicks on Login button
+    And user verifies the successful login with "<username>"
+    #Then Close the browser
 
-
-#with Examples Keyword
-Scenario Outline: Free CRM Login Test Scenario
-
-Given user is already on Login Page
-When title of login page is Free CRM
-Then user enters "<username>" and "<password>"
-Then user clicks on login button
-Then user is on home page
-Then Close the browser
-
-
-Examples:
-	| username | password |
-	| naveenk  | test@123 |
-	|  tom     | test456  | 	
-		
+    Examples: 
+      | username | password     |
+      | Komal92  | Komal@10492# |
+      | test123  | wrongpwd     |
